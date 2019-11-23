@@ -1,2 +1,9 @@
 # Drift
-Reinforcement Learning for Fusion Control. This library will be built on top of the BOUT++ open-source fusion simulation project, and will contain all necessary functionality for training reinforcement learning agents to control and sustain fusion reactions, while preventing the formation of various associated instabilities.
+Deep Reinforcement Learning for Fusion Control. This is an implementation of the World-Models approach to control.
+The aim is to demonstrate the ability of reinforcement learning algorithms to predict and control disruptions in fusion reactors.
+
+The feedback mechanism is the expected return, which is just the energy output minus the input over the course of an episode.
+The control mechanism is Electron Cyclotron Resonance Heating (ECRH), from which the agent aims to prevent and control instabilities,
+while maximising energy output over time.
+
+
