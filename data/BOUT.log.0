@@ -1,0 +1,282 @@
+BOUT++ version 4.3.0
+Revision: 667c19c136fc3e72fcd7c7b2109d44886fdf818d
+MD5 checksum: 5ff6ef2c5633265e6a2370e603b2ca23
+Code compiled on Nov 14 2019 at 12:50:24
+
+B.Dudson (University of York), M.Umansky (LLNL) 2007
+Based on BOUT by Xueqiao Xu, 1999
+
+Processor number: 0 of 1
+
+pid: 14173
+
+Compile-time options:
+	Checking enabled, level 2
+	Signal handling enabled
+	netCDF support enabled
+	Parallel NetCDF support disabled
+	OpenMP parallelisation disabled
+	Compiled with flags : "-DMD5SUM=5ff6ef2c5633265e6a2370e603b2ca23 -DREVISION=667c19c136fc3e72fcd7c7b2109d44886fdf818d -g -DHAS_PRETTY_FUNCTION -Wall -Wextra -Wnull-dereference -Wno-cast-function-type -O2 -DCHECK=2 -DSIGHANDLE -DLOGCOLOR -DBOUT_VERSION_STRING=\"4.3.0\" -DBOUT_VERSION_DOUBLE=4.30 -DBACKTRACE -DBOUT_HAS_FFTW -DNCDF -DHDF5 -DBOUT_HAS_PVODE -DBOUT_HAS_GETTEXT -DBOUT_LOCALE_PATH=/usr/local/share/locale"
+	Command line options for this run : ./main 
+Reading options file data/BOUT.inp
+Writing options to file data/BOUT.settings
+
+Getting grid data from options
+	Option mesh:type = bout (default)
+	Option mesh:StaggerGrids = 0 (default)
+	Option mesh:maxregionblocksize = 64 (default)
+	Option mesh:calcParallelSlices_on_communicate = 1 (default)
+	Option mesh:ddz:fft_filter = 0 (default)
+	Option mesh:symmetricGlobalX = 1 (default)
+	Option mesh:symmetricglobaly = true (data/BOUT.inp)
+Loading mesh
+	Option input:transform_from_field_aligned = 1 (default)
+	Option mesh:nx = 1 (data/BOUT.inp)
+	Option mesh:ny = 100 (data/BOUT.inp)
+	Option mesh:nz = 1 (data/BOUT.inp)
+	Read nz from input grid file
+	Grid size: 1 x 100 x 1
+Variable 'MXG' not in mesh options. Setting to 0
+	Option mxg = 0 (data/BOUT.inp)
+Variable 'MYG' not in mesh options. Setting to 0
+	Option MYG = 2 (default)
+	Guard cells (x,y,z): 0, 2, 0
+	Option mesh:ixseps1 = -1 (data/BOUT.inp)
+	Option mesh:ixseps2 = -1 (data/BOUT.inp)
+Variable 'jyseps1_1' not in mesh options. Setting to -1
+Variable 'jyseps1_2' not in mesh options. Setting to 50
+Variable 'jyseps2_1' not in mesh options. Setting to 50
+Variable 'jyseps2_2' not in mesh options. Setting to 99
+Variable 'ny_inner' not in mesh options. Setting to 50
+Finding value for NXPE (ideal = 0.100000)
+	Candidate value: 1
+	 -> Good value
+	Domain split (NXPE=1, NYPE=1) into domains (localNx=1, localNy=100)
+	Option IncIntShear = 0 (default)
+	Option periodicX = 0 (default)
+	Option async_send = 0 (default)
+	Option ZMIN = 0 (default)
+	Option ZMAX = 1 (default)
+	EQUILIBRIUM IS SINGLE NULL (SND) 
+	MYPE_IN_CORE = 0
+	DXS = 0, DIN = -1. DOUT = -1
+	UXS = 0, UIN = -1. UOUT = -1
+	XIN = -1, XOUT = -1
+	Twist-shift: 
+	Option TwistShift = 0 (default)
+Variable 'ShiftAngle' not in mesh options. Setting to empty vector
+Boundary regions in this processor: upper_target, lower_target, 
+Constructing default regions
+	Boundary region inner X
+	Boundary region outer X
+	Option mesh:extrapolate_x = 0 (default)
+	Option mesh:extrapolate_y = 0 (default)
+Variable 'dx' not in mesh options. Setting to 1.000000e+00
+	Option mesh:dy = 0.2 (data/BOUT.inp)
+	Option ZMIN = 0 (default)
+	Option ZMAX = 1 (default)
+Variable 'dz' not in mesh options. Setting to 6.28319
+Variable 'g11' not in mesh options. Setting to 1.000000e+00
+Variable 'g22' not in mesh options. Setting to 1.000000e+00
+Variable 'g33' not in mesh options. Setting to 1.000000e+00
+Variable 'g12' not in mesh options. Setting to 0.000000e+00
+Variable 'g13' not in mesh options. Setting to 0.000000e+00
+Variable 'g23' not in mesh options. Setting to 0.000000e+00
+	Local maximum error in diagonal inversion is 0.000000e+00
+	Local maximum error in off-diagonal inversion is 0.000000e+00
+Variable 'J' not in mesh options. Setting to 0.000000e+00
+	WARNING: Jacobian 'J' not found. Calculating from metric tensor
+Variable 'Bxy' not in mesh options. Setting to 0.000000e+00
+	WARNING: Magnitude of B field 'Bxy' not found. Calculating from metric tensor
+Calculating differential geometry terms
+	Communicating connection terms
+	Option non_uniform = 1 (default)
+Variable 'd2x' not in mesh options. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2x' not found. Calculating from dx
+Variable 'd2y' not in mesh options. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2y' not found. Calculating from dy
+Variable 'ShiftTorsion' not in mesh options. Setting to 0.000000e+00
+	WARNING: No Torsion specified for zShift. Derivatives may not be correct
+	Option mesh:paralleltransform = identity (default)
+	done
+	Option append = 0 (default)
+	Option dump_format = nc (default)
+Setting up output (dump) file
+	Option output:parallel = 0 (default)
+	Option output:flush = 1 (default)
+	Option output:guards = 1 (default)
+	Option output:floats = 0 (default)
+	Option output:openclose = 1 (default)
+	Option output:enabled = 1 (default)
+	Option output:init_missing = 0 (default)
+	Option output:shiftOutput = 0 (default)
+	Option output:shiftInput = 0 (default)
+	Option output:flushFrequency = 1 (default)
+	Using NetCDF format for file 'data/BOUT.dmp.nc'
+	Option restart:parallel = 0 (default)
+	Option restart:flush = 1 (default)
+	Option restart:guards = 1 (default)
+	Option restart:floats = 0 (default)
+	Option restart:openclose = 1 (default)
+	Option restart:enabled = 1 (default)
+	Option restart:init_missing = 0 (default)
+	Option restart:shiftOutput = 0 (default)
+	Option restart:shiftInput = 0 (default)
+	Option restart:flushFrequency = 1 (default)
+	Option solver:type = pvode (default)
+	Option solver:monitor_timestep = 0 (default)
+	Option solver:is_nonsplit_model_diffusive = 1 (default)
+	Option solver:mms = 0 (default)
+	Option solver:mms_initialise = 0 (default)
+	Option restart = 0 (default)
+	Option conduction:chi = 1 (data/BOUT.inp)
+Setting boundary for variable T
+	upper_target region: 	Option t:bndry_all = dirichlet_o4(0.0) (data/BOUT.inp)
+
+	lower_target region: 	Option t:bndry_all = dirichlet_o4(0.0) (data/BOUT.inp)
+
+	Option input:transform_from_field_aligned = true (default)
+	Option t:function = gauss(y-pi, 0.2) (data/BOUT.inp)
+	Option t:scale = 1 (data/BOUT.inp)
+	Option all:evolve_bndry = 0 (default)
+	Option t:evolve_bndry = 0 (default)
+	Option datadir = data ()
+	Option dump_format = nc (default)
+	Option restart_format = nc (default)
+	Using NetCDF format for file 'data/BOUT.restart.nc'
+	Option nout = 100 (data/BOUT.inp)
+	Option timestep = 0.1 (data/BOUT.inp)
+	Option solver:NOUT = 100 (default)
+	Option solver:output_step = 0.1 (default)
+Solver running for 100 outputs with output timestep of 1.000000e-01
+Initialising solver
+Initialising PVODE solver
+	3d fields = 1, 2d fields = 0 neq=100, local_N=100
+	Option solver:mudq = 3 (default)
+	Option solver:mldq = 3 (default)
+	Option solver:mukeep = 0 (default)
+	Option solver:mlkeep = 0 (default)
+	Option solver:ATOL = 1e-12 (default)
+	Option solver:RTOL = 1e-05 (default)
+	Option solver:use_precon = 0 (default)
+	Option solver:precon_dimens = 50 (default)
+	Option solver:precon_tol = 0.0001 (default)
+	Option solver:mxstep = 500 (default)
+Running simulation
+
+
+Run started at  : Sat 23 Nov 2019 12:18:50 PM AEST
+	Option restart = false (default)
+	Option append = false (default)
+	Option dump_on_restart = 1 (default)
+	Option wall_limit = -1 (default)
+	Option stopCheck = 0 (default)
+Sim Time  |  RHS evals  | Wall Time |  Calc    Inv   Comm    I/O   SOLVER
+
+0.000e+00          2       6.71e-04    25.7    0.0    2.5   60.3   11.5
+1.000e-01        107       9.56e-03    84.3    0.0    0.2    6.2    9.3
+2.000e-01         34       4.27e-03    77.4    0.0    0.3    7.4   14.9
+3.000e-01         21       2.33e-03    69.0    0.0    0.2   12.3   18.5
+4.000e-01         23       2.46e-03    71.6    0.0    0.2   11.3   16.9
+5.000e-01         21       2.28e-03    69.5    0.0    0.2   12.6   17.6
+6.000e-01         24       2.53e-03    72.4    0.0    0.2   11.2   16.2
+7.000e-01         26       2.70e-03    73.6    0.0    0.2   10.7   15.5
+8.000e-01         24       2.51e-03    72.6    0.0    0.2   11.3   15.9
+9.000e-01         19       2.16e-03    67.7    0.0    0.3   13.7   18.4
+1.000e+00         14       1.72e-03    62.3    0.0    0.2   16.6   20.9
+1.100e+00         14       1.76e-03    63.3    0.0    0.2   16.5   20.0
+1.200e+00         14       1.71e-03    62.7    0.0    0.2   16.6   20.5
+1.300e+00         10       1.39e-03    55.3    0.0    0.2   20.4   24.1
+1.400e+00         12       1.57e-03    58.7    0.0    0.2   18.8   22.3
+1.500e+00         12       1.55e-03    59.5    0.0    0.2   18.3   22.0
+1.600e+00         11       1.67e-03    57.5    0.0    0.2   19.0   23.4
+1.700e+00         10       2.06e-03    57.2    0.0    0.3   19.3   23.3
+1.800e+00          9       1.34e-03    52.0    0.0    0.2   21.9   25.9
+1.900e+00          9       1.35e-03    51.6    0.0    0.2   21.8   26.4
+2.000e+00          4       9.13e-04    34.4    0.0    0.2   31.5   33.9
+2.100e+00         11       1.47e-03    57.5    0.0    0.2   19.4   23.0
+2.200e+00          6       1.06e-03    43.8    0.0    0.2   26.8   29.2
+2.300e+00          5       9.93e-04    39.2    0.0    0.2   29.8   30.8
+2.400e+00          5       9.81e-04    39.8    0.0    0.2   28.8   31.2
+2.500e+00         10       1.39e-03    55.5    0.0    0.2   20.5   23.8
+2.600e+00          5       9.80e-04    39.7    0.0    0.2   28.8   31.3
+2.700e+00          7       1.16e-03    46.9    0.0    0.2   25.0   27.9
+2.800e+00          8       1.23e-03    50.6    0.0    0.2   23.2   26.1
+2.900e+00          8       1.22e-03    50.4    0.0    0.2   23.3   26.1
+3.000e+00          1       6.57e-04    13.5    0.0    0.1   43.3   43.0
+3.100e+00          7       1.17e-03    46.7    0.0    0.2   26.0   27.1
+3.200e+00          6       1.07e-03    44.1    0.0    0.2   26.5   29.2
+3.300e+00          5       9.84e-04    39.9    0.0    0.2   28.8   31.1
+3.400e+00          6       1.06e-03    44.0    0.0    0.2   26.6   29.1
+3.500e+00          1       6.52e-04    12.7    0.0    0.1   43.5   43.7
+3.600e+00          5       9.86e-04    39.4    0.0    0.2   29.2   31.3
+3.700e+00          6       1.06e-03    44.0    0.0    0.2   26.7   29.1
+3.800e+00          7       1.14e-03    47.5    0.0    0.2   24.8   27.6
+3.900e+00          1       6.52e-04    13.0    0.0    0.1   43.9   43.0
+4.000e+00          8       1.23e-03    50.3    0.0    0.2   23.4   26.0
+4.100e+00          1       6.48e-04    12.9    0.0    0.1   43.4   43.7
+4.200e+00          9       1.30e-03    52.8    0.0    0.2   21.8   25.2
+4.300e+00          1       6.44e-04    13.0    0.0    0.1   43.5   43.4
+4.400e+00          7       1.16e-03    46.5    0.0    0.2   26.1   27.2
+4.500e+00          1       9.60e-04    11.1    0.0    0.1   46.8   42.0
+4.600e+00          6       1.60e-03    46.6    0.0    0.2   25.7   27.5
+4.700e+00          1       7.46e-04    17.8    0.0    0.1   38.5   43.6
+4.800e+00          6       1.08e-03    43.8    0.0    0.2   26.6   29.3
+4.900e+00          7       1.16e-03    47.0    0.0    0.2   25.4   27.5
+5.000e+00          1       6.68e-04    13.0    0.0    0.1   44.2   42.6
+5.100e+00          8       1.29e-03    52.0    0.0    0.2   22.1   25.7
+5.200e+00          1       7.07e-04    11.9    0.0    0.1   40.3   47.7
+5.300e+00          6       1.06e-03    43.9    0.0    0.2   26.5   29.4
+5.400e+00          1       6.52e-04    12.9    0.0    0.1   43.8   43.2
+5.500e+00          7       1.19e-03    45.5    0.0    0.2   25.3   29.0
+5.600e+00          1       6.49e-04    13.0    0.0    0.1   43.5   43.5
+5.700e+00          9       1.34e-03    51.0    0.0    0.2   24.5   24.4
+5.800e+00          1       6.52e-04    12.8    0.0    0.1   43.9   43.2
+5.900e+00          1       6.52e-04    12.9    0.0    0.1   44.1   42.9
+6.000e+00         10       1.38e-03    55.4    0.0    0.2   20.4   24.0
+6.100e+00          1       6.56e-04    12.8    0.0    0.1   43.8   43.3
+6.200e+00          1       6.56e-04    12.8    0.0    0.1   43.7   43.4
+6.300e+00          9       1.31e-03    53.0    0.0    0.2   21.7   25.1
+6.400e+00          1       6.58e-04    12.7    0.0    0.1   44.5   42.7
+6.500e+00          9       1.37e-03    54.8    0.0    0.2   20.8   24.1
+6.600e+00          1       6.55e-04    12.9    0.0    0.1   43.5   43.5
+6.700e+00          1       6.55e-04    13.0    0.0    0.1   43.8   43.1
+6.800e+00          7       1.14e-03    47.3    0.0    0.2   25.2   27.4
+6.900e+00          1       6.54e-04    12.8    0.0    0.1   43.2   43.8
+7.000e+00          1       6.50e-04    12.9    0.0    0.1   43.4   43.5
+7.100e+00         11       1.47e-03    57.3    0.0    0.2   19.4   23.2
+7.200e+00          1       6.56e-04    12.8    0.0    0.1   43.9   43.2
+7.300e+00          1       6.46e-04    13.0    0.0    0.1   43.5   43.4
+7.400e+00          1       6.51e-04    12.9    0.0    0.1   43.4   43.6
+7.500e+00          1       6.52e-04    13.5    0.0    0.1   43.3   43.1
+7.600e+00         15       1.79e-03    63.7    0.0    0.2   16.3   19.9
+7.700e+00          1       6.46e-04    13.0    0.0    0.1   43.5   43.4
+7.800e+00          1       9.49e-04    16.0    0.0    0.1   45.9   38.0
+7.900e+00          1       1.03e-03    14.5    0.0    0.1   44.5   40.9
+8.000e+00         15       1.95e-03    59.1    0.0    0.2   16.3   24.4
+8.100e+00          1       6.73e-04    12.9    0.0    0.1   43.1   43.8
+8.200e+00          1       6.48e-04    13.1    0.0    0.1   43.5   43.3
+8.300e+00          1       6.55e-04    12.9    0.0    0.1   43.3   43.7
+8.400e+00         12       1.56e-03    59.2    0.0    0.2   18.2   22.3
+8.500e+00          1       6.56e-04    13.0    0.0    0.1   43.9   43.0
+8.600e+00          1       6.54e-04    12.9    0.0    0.1   44.0   42.9
+8.700e+00          1       6.98e-04    12.1    0.0    0.1   40.7   47.1
+8.800e+00          1       6.51e-04    13.1    0.0    0.1   43.2   43.6
+8.900e+00          8       1.24e-03    49.4    0.0    0.2   23.7   26.6
+9.000e+00          1       6.50e-04    13.0    0.0    0.1   43.4   43.5
+9.100e+00          1       6.54e-04    12.9    0.0    0.1   44.2   42.8
+9.200e+00          1       6.52e-04    12.9    0.0    0.1   43.9   43.0
+9.300e+00          9       1.31e-03    53.1    0.0    0.2   21.6   25.1
+9.400e+00          1       6.53e-04    12.9    0.0    0.1   43.9   43.1
+9.500e+00          1       6.49e-04    13.0    0.0    0.1   43.5   43.4
+9.600e+00          1       6.51e-04    12.8    0.0    0.1   43.1   43.9
+9.700e+00          1       6.44e-04    13.0    0.0    0.1   43.6   43.3
+9.800e+00         10       1.47e-03    55.0    0.0    0.2   19.5   25.3
+9.900e+00          1       6.54e-04    12.9    0.0    0.1   43.9   43.0
+1.000e+01          1       6.49e-04    13.1    0.0    0.1   43.3   43.5
+
+Run finished at  : Sat 23 Nov 2019 12:18:50 PM AEST
+Run time : 0 s
+	Option datadir = data ()
+	Option settingsfile = BOUT.settings ()
+Writing options to file data/BOUT.settings

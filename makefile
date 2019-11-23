@@ -1,4 +1,3 @@
-
 CXX='bout-config --cxx'
 CFLAGS='bout-config --cflags'
 LD='bout-config --ld'
