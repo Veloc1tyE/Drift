@@ -1,6 +1,5 @@
 # Drift
-Deep Reinforcement Learning for Fusion Control. This is an implementation of the World-Models approach to control, and is built on top of the BOUT++ 
-open source fusion simulation library.
+Deep Reinforcement Learning for Fusion Control. This is an implementation of the World-Models approach to control, and is built on top of the BOUT++ open-source plasma-simulation framework.
 
 The aim is to demonstrate the ability of reinforcement learning algorithms to predict and control disruptions in fusion reactors.
 
