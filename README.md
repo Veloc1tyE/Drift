@@ -1,7 +1,4 @@
 # Drift
-.tabulator .tabulator-header .tabulator-col {
-    text-align:center;
-}
 
 Deep Reinforcement Learning for Fusion Control. Initial simulation environment is based on the paper "Mathematical Modeling of Plasma Transport in Tokamaks", by Ji Qiang.
 
