@@ -10,4 +10,31 @@ https://iopscience.iop.org/article/10.1088/0741-3335/57/12/123001s.
 
 This will require more expressive and costly simulation, so the agent will need to be model-based, and the latent space and its predicted evolution will serve as the environment, as seen in https://arxiv.org/abs/1803.10122.
 
+## Building
 
+Cmake is used as the build system. Dependencies must be installed manually.
+
+The BOUT++ solver codes have various dependencies, for installation instructions see [BOUT-docs](https://bout-dev.readthedocs.io/en/latest/). 
+
+You will also need to install [libtorch](https://pytorch.org/cppdocs/installing.html) manually.
+
+## Linux
+
+```
+cd Drift
+mkdir build && cd build
+cmake ..
+make -j4
+```
+
+## Motivation
+
+Disruption control is a major problem in fusion energy. As high-temperature superconducting technology continues to improve, I expect it will be the main bottleneck to achieving fusion. 
+
+Deep RL is powerful and expressive enough to solve this problem; furthermore having energy gain as the reward function naturally incentivises the agent to create sustained fusion with very little disruption, as it is trying to maximise the expected energy gain of a thermonuclear burn.
+
+Further references for applications of DL to fusion are given below:
+
+https://arxiv.org/pdf/1811.00333.pdf
+
+https://www.nature.com/articles/s41586-019-1116-4
