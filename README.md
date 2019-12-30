@@ -31,7 +31,8 @@ Disruption control is a major problem in fusion energy. As high-temperature supe
 
 I believe Deep RL is powerful and expressive enough to solve this problem; furthermore having net expected energy gain as the reward naturally incentivises the agent to create sustained fusion with very little disruption.
 
-Further references for applications of DL to fusion are shown below:
+Further references for applications of DL to fusion are given below:
 
 https://arxiv.org/pdf/1811.00333.pdf
+
 https://www.nature.com/articles/s41586-019-1116-4
