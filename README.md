@@ -1,11 +1,8 @@
 # Drift
-Deep Reinforcement Learning for Fusion Control. This is an implementation of the World-Models approach to control, and is built on top of the BOUT++ open-source plasma-simulation framework.
+Deep Reinforcement Learning for Fusion Control. Initial simulation environment is based on the paper "Mathematical Modeling of Plasma Transport in Tokamaks", by Ji Qiang.
 
-The aim is to demonstrate the ability of reinforcement learning algorithms to predict and control disruptions in fusion reactors.
+Initially, we have an A2C agent that aims to maximise net energy gain and ignition probability by moving about in parameter space. Equations from the paper are used as the model, and codes from Bout++ are repurposed to solve these differential equations and provide a simulation environment for the agent.
 
-The feedback mechanism is the expected return, which is just the energy output minus the input over the course of an episode.
-
-The control mechanism is Electron Cyclotron Resonance Heating (ECRH), from which the agent aims to prevent and control instabilities,
-while maximising energy output over time.
+The current method of modelling is not too computationally expensive due to its simplicity. However future iterations will incorporate further control mechanisms such as Resonant Magnetic Perturbations. This will require more expressive and costly simulation, so the agent will need to be model-based, and the latent space and its predicted evolution will serve as the environment, as seen in https://arxiv.org/abs/1803.10122.
 
 
