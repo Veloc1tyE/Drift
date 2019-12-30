@@ -72,7 +72,7 @@ endif(DRIFT_BUILD_TESTS)
 
 # Linking
 target_link_libraries(drift torch ${TORCH_LIBRARIES})
-target_link_libraries(cpprl torch ${TORCH_LIBRARIES})
+target_link_libraries(drift torch ${TORCH_LIBRARIES})
 if (DRIFT_BUILD_TESTS)
     target_link_libraries(drift_tests PRIVATE ${TORCH_LIBRARIES})
 endif(DRIFT_BUILD_TESTS)
