@@ -31,7 +31,7 @@ make -j4
 
 Disruption control is a major problem in fusion energy. As high-temperature superconducting technology continues to improve, I expect it will be the main bottleneck to achieving fusion. 
 
-Deep RL is powerful and expressive enough to solve this problem; furthermore having energy gain as the reward function naturally incentivises the agent to create sustained fusion with very little disruption, since it is trying to maximise its energy gain expectation over the lifetime of the reaction.
+Deep RL is powerful and expressive enough to solve this problem; furthermore having energy gain as the reward function naturally incentivises the agent to create sustained fusion with very little disruption, as it is trying to maximise its energy gain expectation over the lifetime of the thermonuclear burn.
 
 Further references for applications of DL to fusion are given below:
 
