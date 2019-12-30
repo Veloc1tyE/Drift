@@ -12,4 +12,26 @@ This will require more expressive and costly simulation, so the agent will need 
 
 ## Building
 
-Cmake is used as the build system. Dependencies should generally be included as submodules (run git submodule update --init --recursive to get them), however the BOUT++ codes used have dependencies that you may need to install manually (for more info see [BOUT-docs](https://bout-dev.readthedocs.io/en/latest/). You will also need to install [libtorch](https://pytorch.org/cppdocs/installing.html) manually.
+Cmake is used as the build system. Dependencies should generally be included as submodules (run git submodule update --init --recursive to get them), however the BOUT++ codes used have dependencies that you may need to install manually (for more info see [BOUT-docs](https://bout-dev.readthedocs.io/en/latest/). 
+
+You will also need to install [libtorch](https://pytorch.org/cppdocs/installing.html) manually.
+
+## Linux
+
+'''
+cd Drift
+mkdir build && cd build
+cmake ..
+make -j4
+'''
+
+## Motivation
+
+Disruption control is a major problem in fusion energy. As high-temperature superconducting technology continues to improve, I expect it will be the main bottleneck to achieving fusion. 
+
+I believe Deep RL is powerful and expressive enough to solve this problem; furthermore having net expected energy gain as the reward naturally incentivises the agent to create sustained fusion with very little disruption.
+
+Further references for applications of DL to fusion are shown below:
+
+https://arxiv.org/pdf/1811.00333.pdf
+https://www.nature.com/articles/s41586-019-1116-4
