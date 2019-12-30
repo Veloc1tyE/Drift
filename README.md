@@ -11,3 +11,5 @@ https://iopscience.iop.org/article/10.1088/0741-3335/57/12/123001s.
 This will require more expressive and costly simulation, so the agent will need to be model-based, and the latent space and its predicted evolution will serve as the environment, as seen in https://arxiv.org/abs/1803.10122.
 
 ## Building
+
+Cmake is used as the build system. Dependencies should generally be included as submodules (run git submodule update --init --recursive to get them), however the BOUT++ codes used have dependencies that you may need to install manually (for more info see [BOUT-docs](https://bout-dev.readthedocs.io/en/latest/). You will also need to install [libtorch](https://pytorch.org/cppdocs/installing.html) manually.
