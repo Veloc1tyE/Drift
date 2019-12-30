@@ -14,7 +14,7 @@ This will require more expressive and costly simulation, so the agent will need 
 
 Cmake is used as the build system. Dependencies must be installed manually.
 
-BOUT++ codes have dependencies shown [here](https://bout-dev.readthedocs.io/en/latest/)). 
+The BOUT++ solver codes have various dependencies, for installation instructions see [BOUT-docs](https://bout-dev.readthedocs.io/en/latest/). 
 
 You will also need to install [libtorch](https://pytorch.org/cppdocs/installing.html) manually.
 
