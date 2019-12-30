@@ -18,13 +18,13 @@ You will also need to install [libtorch](https://pytorch.org/cppdocs/installing.
 
 ## Linux
 
-'''
+' ' '
 
 cd Drift
 mkdir build && cd build
 cmake ..
 make -j4
-'''
+' ' '
 
 ## Motivation
 
