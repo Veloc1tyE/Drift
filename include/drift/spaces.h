@@ -17,5 +17,5 @@ namespace drift  {
     struct ActionSpace  {
         std::string type;
         std::vector<int64_t> shape;
-    }
+    };
 }
