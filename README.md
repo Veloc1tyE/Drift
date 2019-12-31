@@ -12,7 +12,7 @@ This will require more expressive and costly simulation, so the agent will need 
 
 ## Building
 
-Cmake is used as the build system. Dependencies must be installed manually.
+CMake is used as the build system. Dependencies must be installed manually.
 
 The BOUT++ solver codes have various dependencies, for installation instructions see [BOUT-docs](https://bout-dev.readthedocs.io/en/latest/). 
 
