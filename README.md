@@ -31,10 +31,12 @@ make -j4
 
 Disruption control is a major problem in fusion energy. As high-temperature superconducting technology continues to improve, I expect it will be the main bottleneck to achieving fusion. 
 
-Deep RL is powerful and expressive enough to solve this problem; furthermore having energy gain as the reward function naturally incentivises the agent to create sustained fusion with very little disruption, as it is trying to maximise the expected energy return of a given burn.
+Deep Reinforcement Learning (DRL) is powerful and expressive enough to solve this problem; furthermore having energy gain as the reward function naturally incentivises the agent to create sustained fusion with very little disruption, as it is trying to maximise the expected energy return of a given burn.
 
-General applications of DL to fusion are given below:
+Applications of Deep Learning to fusion are given below:
 
 https://arxiv.org/pdf/1811.00333.pdf
 
 https://www.nature.com/articles/s41586-019-1116-4
+
+Attempting to solve the control problem with DRL is the logical next step.
