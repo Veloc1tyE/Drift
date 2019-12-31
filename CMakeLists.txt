@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10.0)
 
 project(Drift
-        Languages CXX
+        LANGUAGES CXX
         VERSION 1.2.0
     )
 
