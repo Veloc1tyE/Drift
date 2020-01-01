@@ -76,7 +76,7 @@ namespace drift {
             }
             
             inline bool using_observation_normalizer() const { 
-                return base->using_observation_normalizer();
+                return !observation_normalizer.is_empty();
             }
     };
 
