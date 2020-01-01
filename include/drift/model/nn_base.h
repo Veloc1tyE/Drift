@@ -38,7 +38,7 @@ namespace drift  {
                                                    torch::Tensor hxs,
                                                    torch::Tensor masks);
             // retrieve info about NN
-            unsigned int get_hidden_sizes() const;
+            unsigned int get_hidden_size() const;
             inline int get_output_size() const { return hidden_size; }
             inline bool is_recurrent() const { return recurrent; }
     };
