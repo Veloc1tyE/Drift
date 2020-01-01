@@ -13,7 +13,7 @@ namespace drift {
      * These will contain some probability distribution for the given space
      */ 
 
-    class OutputLayer : public nn:Module {
+    class OutputLayer : public nn::Module {
         public:
             virtual ~OutputLayer() = 0;
             // Forward is just a reference to the output distribution
