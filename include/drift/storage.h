@@ -17,8 +17,11 @@ namespace drift {
     
     class RolloutStorage
     {
+        
         // the A2C algorithm relies on tensors containing the following information
+        
         private:
+            
             // these represent the agent's knowledge of its environment
             torch::Tensor observations, hidden_states, rewards,
                 value_predictions, action_log_probs, masks;
@@ -28,12 +31,34 @@ namespace drift {
             int64_t step;
         
         public:
+            
+            /*
+             * Constructs for initialising this class
+             */ 
+            
             RolloutStorage(int64_t num_steps,
                         int64_t num_processes,
                         c10::ArrayRef<int64_t> obs_shape,
                         ActionSpace action_space,
                         int64_t hidden_state_size,
                         torch::Device device);
+            
+            // needed for storing multiple gamestates, as occurs in A2C 
+            RolloutStorage(std::vector<RolloutStorage *> individual_storages, torch::Device device);
+            
+            /*
+             * Define various methods required by RolloutStorage class,
+             * more generally for use in RL algorithms
+             */ 
+            
+            void after_update();
+            void compute_returns(torch::Tensor next_value,
+                                 bool use_gae,
+                                 float gamma,
+                                 float tau);
+            
+
+
 
     };
 }

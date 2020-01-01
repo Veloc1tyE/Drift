@@ -6,8 +6,13 @@
 
 namespace drift
 {
+    /*
+     * Define structure used for mini-batch processing and training
+     * Training should proceed through MiniBatches for stability.
+     */ 
     struct MiniBatch
     {
+        // include all variables required by A2C algorithm for training
         torch::Tensor observations, hidden_states, actions, value_predictions,
             returns, masks, action_log_probs, advantages;
         
@@ -29,6 +34,10 @@ namespace drift
             action_log_probs(action_log_probs),
             advantages(advantages) {}
     };
+    
+    /*
+     * Abstraction used to point to minibatches during training
+     */
 
     class Generator
     {
