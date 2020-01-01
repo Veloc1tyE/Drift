@@ -6,7 +6,7 @@
 #include <torch/torch.h>
 
 #include "drift/model/nn_base.h"
-#include "drift/model/output_layer.h"
+#include "drift/model/output_layers.h"
 #include "drift/observation_normalizer.h"
 #include "drift/spaces.h"
 
