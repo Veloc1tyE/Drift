@@ -21,7 +21,7 @@ namespace drift {
         private:
             // these represent the agent's knowledge of its environment
             torch::Tensor observations, hidden_states, rewards,
-                value_predictions, action_log_probs, masks;
+                value_predictions, returns, action_log_probs, actions, masks;
             // training related information
             torch::Device device; 
             int64_t num_steps;    
