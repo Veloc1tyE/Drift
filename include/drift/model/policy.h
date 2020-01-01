@@ -81,6 +81,6 @@ namespace drift {
     };
 
     // register policy to torch-module to enable easy tracking
-    TORCH_MODULE(policy);
+    TORCH_MODULE(Policy);
 
 }
