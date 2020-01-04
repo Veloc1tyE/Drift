@@ -139,13 +139,13 @@ namespace drift {
                 {
                     torch::NoGradGuard no_grad;
                     act_result = policy->act(observation,
-                                                torch::Tensor(),
-                                                torch::ones({2,1}));
+                                             torch::Tensor(),
+                                             torch::ones({2,1}));
                 }
                 auto actions = act_result[1]; // action taken
                 auto rewards = actions;
                 storage.insert(observation,
-                                // not recurrent -> no hidden state
+                                // two concurrent processes and five steps
                                 torch::zeros({2,5}),
                                 actions,
                                 act_result[2], // action log_probs
@@ -196,7 +196,7 @@ namespace drift {
                 // matching action to observation
                 auto rewards = ((actions == observation.to(torch::kLong)).to(torch::kFloat) * 2) - 1;
                 // random integer in [0,1]
-                observations = torch::randint(0, 2, {2, 1});
+                observation = torch::randint(0, 2, {2, 1});
                 
                 // store info relevant for training
                 storage.insert(observation,
@@ -225,15 +225,123 @@ namespace drift {
 
     }
 
+    // Torch test processes
+    
     TEST_CASE("A2C")
     {
         SUBCASE("update() learns basic pattern")
         {
             torch::manual_seed(0);
-            auto base = std::mak_shared<MlpBase>(1, false, 5);
-            ActionSpace space{"Discrete", {2}};
+            auto base = std::make_shared<MlpBase>(1, false, 5);
+            
+            ActionSpace space{"Discrete", {2}}; // Algo must learn to produce second action, 
+                                                // this is a discrete action space: [0,1]
+            Policy policy(space, base);
 
+            // 5 steps and 2 concurrent processes, these generate 1 tensor, running on CPU
+            RolloutStorage storage(5, 2, {1}, space, 5, torch::kCPU);
 
+            // intialise A2C algorithm
+            A2C a2c(policy, 1, 0.5, 1e-3, 0.001);
+
+            // the reward is the action
+            auto pre_game_probs = policy->get_probs( // probability distribution of policy
+                        torch::ones({2,1}),  // inputs
+                        torch::zeros({2,5}), // no rnn hidden-state for 2 processes and 5 steps
+                        torch::ones({2,5})); // no masking
+
+            learn_pattern(policy, storage, a2c);
+            
+            auto post_game_probs = policy->get_probs(
+                    torch::ones({2, 1}),
+                    torch::zeros({2, 5}),
+                    torch::ones({2, 1}));
+
+            // print outputs and run checks with torch macros
+            INFO("Pre-training probabilities: \n"
+                    << pre_game_probs << "\n");
+            INFO("Post-training probabilities: \n"
+                    << post_game_probs << "\n");
+            CHECK(post_game_probs[0][0].item().toDouble() <
+                    pre_game_probs[0][0].item().toDouble()); // minimise probability of no reward
+            CHECK(post_game_probs[0][1].item().toDouble() >
+                    pre_game_probs[0][1].item().toDouble()); // maximise probability of reward
+        }
+
+        SUBCASE("update() learns basic game") 
+        {
+            SUBCASE("Without normalised observations") 
+            {
+                /*
+                 * Here we're training the agent to reproduce the input
+                 */ 
+                torch::manual_seed(0);
+                auto base = std::make_shared<MlpBase>(1, false, 5);
+                ActionSpace space{"Discrete", {2}};
+
+                Policy policy(space, base);
+                RolloutStorage storage(5, 2, {1}, space, 5, torch::kCPU);
+                A2C a2c(policy, storage, a2c);
+
+                auto pre_game_probs = policy->get_probs(
+                    torch::ones({2, 1}),
+                    torch::zeros({2, 5}),
+                    torch::ones({2, 1}));
+
+                learn_game(policy, storage, a2c);
+
+                auto post_game_probs = policy->get_probs(
+                        torch::ones({2, 1}),
+                        torch::zeros({2, 5}),
+                        torch::ones({2, 1}));
+
+                INFO("Pre-training probabilities: \n"
+                        << pre_game_probs << "\n");
+                INFO("Post-training probabilities: \n"
+                        << post_game_probs << "\n");
+
+                // Agent wants to reproduce input in second part of action-space
+                // We include the first part of the action-space for easy testing
+                CHECK(post_game_probs[0][0].item().toDouble() <
+                        pre_game_probs[0][0].item().toDouble());
+                
+                // maximise the probability of the input
+                CHECK(post_game_probs[0][1].item().toDouble() > 
+                        pre_game_probs[0][1].item().toDouble());
+
+            }
+            SUBCASE("With normalized observations") 
+            {
+                torch::manual_seed(0);
+                auto base = std::make_shared<MlpBase>(1, false, 5);
+                ActionSpace space{"Discrete", {2}}; // observation is discrete, so is action-space
+                
+                Policy policy(space, base, true); // normalise observations for policy
+                RolloutStorage storage(5, 2, {1}, space, 5, torch::kCPU);
+                A2C a2c(policy, 1, 0.5, 1e-7, 0.0001);
+
+                auto pre_game_probs = policy->get_probs(
+                            torch::ones({2, 1}),
+                            torch::zeros({2, 5}),
+                            torch::ones({2, 1}));
+                
+                learn_game(policy, storage, a2c);
+
+                auto post_game_probs = policy->get_probs(
+                        torch::ones({2, 1}),
+                        torch::zeros({2, 5}),
+                        torch::ones({2, 1}));
+
+                INFO("Pre-training probabilities: \n"
+                        << pre_game_probs << "\n");
+                INFO("Post-training probabilities: \n"
+                        << post_game_probs << "\n");
+                CHECK(post_game_probs[0][0].item().toDouble() <
+                        pre_game_probs[0][0].item().toDouble());
+                CHECK(post_game_probs[0][1].item().toDouble() >
+                        pre_game_probs[0][1].item().toDouble());
+
+            }
         }
 
     }
