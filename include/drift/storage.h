@@ -53,9 +53,20 @@ namespace drift {
                                  float gamma,
                                  float tau);
             
-            // generate minibatches for training algorithm
-            std::unique_ptr<Generator> recurrent_generator(torch::Tensor advantages,
+            // generate minibatches for training feed forward network
+            std::unique_ptr<Generator> feed_forward_generator(torch::Tensor advantages,
                     int num_mini_batch);
+            // generate minibatches for training recurren network
+            std::unique_ptr<Generator> recurrent_generator(torch::Tensor advantages, int num_mini_batch);
+
+            // store an observation for training
+            void insert(torch::Tensor observation,
+                        torch::Tensor hidden_state,
+                        torch::Tensor action,
+                        torch::Tensor action_log_prob,
+                        torch::Tensor value_prediction,
+                        torch::Tensor reward,
+                        torch::Tensor mask);
 
             // initialise A2C training algorithm
             void set_first_observation(torch::Tensor observation);
