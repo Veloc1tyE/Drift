@@ -72,7 +72,7 @@ namespace drift {
         * since normalisation is based on the mean and variances of the samples
         */
         if (policy->using_observation_normalizer())  {
-            policy->update_observation_normalizer(rollout.get_observations());
+            policy->update_observation_normalizer(rollouts.get_observations());
         }
 
         // Run evaluation on rollouts
