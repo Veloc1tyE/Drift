@@ -109,7 +109,7 @@ namespace drift {
                     - evaluate_result[2] * entropy_coef);
 
         // Step optimizer
-        optimizer.zero_grad();
+        optimizer->zero_grad();
         loss.backward();
         optimizer->step();
 
