@@ -99,10 +99,10 @@ namespace drift {
         auto advantages = rollouts.get_returns().slice(0, 0, -1) - values;
 
         // Value loss
-        auto value loss = advatages.pow(2).mean();
+        auto value_loss = advatages.pow(2).mean();
 
         // Action loss
-        auto action loss = -(advantages.detach() * action_log_probs).mean();
+        auto action_loss = -(advantages.detach() * action_log_probs).mean();
 
         // Total loss
         auto loss = (value_loss * value_loss_coef + action_loss 
