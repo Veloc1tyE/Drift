@@ -81,8 +81,7 @@ namespace drift {
                 rollouts.get_observations().slice(0, 0, -1).view(obs_shape),  
                 
                 // flatten hidden states into a list of tensors, encoding hidden state at each timestep    
-                rollouts.get_hidden_states()[0].view({-1, policy->get_hidden_sizes()}),
-                
+                rollouts.get_hidden_states()[0].view({-1, policy->get_hidden_size()}),                
                 // retrieve masks as a list of tensors from start to finish, as a flattened vector
                 rollouts.get_masks().slice(0, 0, -1).view({-1, 1})
                 
