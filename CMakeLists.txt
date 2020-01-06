@@ -19,6 +19,8 @@ if (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
         --inline-suppr
         --error-exitcode=1
         --language=c++
+        --config-exclude=${CMAKE_CURRENT_SOURCE_DIR}/src/third_party
+        --config-exclude=${CMAKE_CURRENT_SOURCE_DIR}/lib
         -i${CMAKE_CURRENT_LIST_DIR}/example/lib
         -I ${CMAKE_CURRENT_LIST_DIR}/src 
         -I ${CMAKE_CURRENT_LIST_DIR}/include 
