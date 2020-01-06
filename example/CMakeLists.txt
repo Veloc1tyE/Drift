@@ -4,7 +4,7 @@ set(SPDLOG_DIR ${LIB_DIR}/spdlog)
 set(ZMQ_DIR ${LIB_DIR}/libzmq)
 
 # Spdlog
-add_subdirectory(${SPDLOG_DIR)
+add_subdirectory(${SPDLOG_DIR})
 
 target_include_directories(
     PRIVATE
