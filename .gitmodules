@@ -4,7 +4,3 @@
 [submodule "example/lib/msgpack-c"]
     path = example/lib/msgpack-c
     url = git@github.com:gabime/msgpack-c.git
-[submodule "example/lib/libzmq"]
-    path = example/lib/libzmq
-    url = git@github.com:gabime/libzmq.git
-
