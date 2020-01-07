@@ -8,6 +8,7 @@
 #include "cpprl/model/policy.h"
 #include "cpprl/storage.h"
 #include "cpprl/spaces.h"
+#include "third_party/doctest.h"
 
 
 namespace cpprl {
