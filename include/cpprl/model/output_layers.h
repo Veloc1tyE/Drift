@@ -20,7 +20,7 @@ namespace cpprl {
             virtual std::unique_ptr<Distribution> forward(torch::Tensor x) = 0;
     };
 
-    inline OutputLayer::~OutputLayer() {};
+    inline OutputLayer::~OutputLayer() {}
 
     /*
      * Output may map to a Bernoulli distribution
