@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <torch/torch.h>
-#include "cpprl/model/nn.base.h"
+#include "cpprl/model/nn_base.h"
 
 using namespace torch;
 
