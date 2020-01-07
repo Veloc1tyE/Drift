@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.10.0)
-
 project(Drift
-        LANGUAGES CXX
-        VERSION 1.2.0
-    )
+    LANGUAGES CXX
+    VERSION 1.2.0
+    DESCRIPTION "Reinforcement learning for fusion control"
+)
 
 # Project-wide properties
 set(CMAKE_CXX_STANDARD 17)
@@ -19,9 +19,10 @@ if (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
         --inline-suppr
         --error-exitcode=1
         --language=c++
-        --config-exclude=${CMAKE_CURRENT_SOURCE_DIR}/src/third_party
-        --config-exclude=${CMAKE_CURRENT_SOURCE_DIR}/lib
+        --config-exclude=${CMAKE_CURRENT_LIST_DIR}/src/third_party
+        --config-exclude=${CMAKE_CURRENT_LIST_DIR}/lib
         -i${CMAKE_CURRENT_LIST_DIR}/example/lib
+        --suppressions-list=${CMAKE_CURRENT_LIST_DIR}/CppCheckSuppressions.txt 
         -I ${CMAKE_CURRENT_LIST_DIR}/src 
         -I ${CMAKE_CURRENT_LIST_DIR}/include 
         -I ${CMAKE_CURRENT_LIST_DIR}/example 
@@ -37,7 +38,7 @@ if (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
 endif(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
 
 # Dependencies
-# PyTorch
+## PyTorch
 if (NOT TORCH_FOUND)
     find_package(Torch REQUIRED)
     if (TORCH_CXX_FLAGS)
@@ -46,53 +47,37 @@ if (NOT TORCH_FOUND)
 endif (NOT TORCH_FOUND)
 
 # Define targets
-add_library(drift STATIC "")
-target_compile_definitions(drift PRIVATE DOCTEST_CONFIG_DISABLE)
-option(DRIFT_BUILD_TESTS "Whether o not to build Drift tests" ON)
-if (DRIFT_BUILD_TESTS)
-    add_executable(drift_tests)
-endif(DRIFT_BUILD_TESTS)
+add_library(cpprl STATIC "")
+target_compile_definitions(cpprl PRIVATE DOCTEST_CONFIG_DISABLE)
+option(CPPRL_BUILD_TESTS "Whether or not to build the CppRl tests" ON)
+if (CPPRL_BUILD_TESTS)
+    add_executable(cpprl_tests "")
+endif(CPPRL_BUILD_TESTS)
 
 # Enable all warnings
 if(MSVC)
-    target_compile_options(drift PRIVATE /W0)
+    target_compile_options(cpprl PRIVATE /W0)
 else(MSVC)
-    target_compile_options(drift PRIVATE -Wall -Wextra -pedantic)
-endif(MSVC)
+    target_compile_options(cpprl PRIVATE -Wall -Wextra -pedantic)
+endif(MSVC)  
 
 # Includes
-set(DRIFT_INCLUDE_DIRS
+set(CPPRL_INCLUDE_DIRS
     include
     src
-    $(TORCH_INCLUDE_DIRS)
+    ${TORCH_INCLUDE_DIRS}
 )
-
-target_include_directories(drift PRIVATE ${DRIFT_INCLUDE_DIRS})
-if (DRIFT_BUILD_TESTS)
-    target_include_directories(drift_tests PRIVATE ${DRIFT_INCLUDE_DIRS})
-endif(DRIFT_BUILD_TESTS)
+target_include_directories(cpprl PRIVATE ${CPPRL_INCLUDE_DIRS})
+if (CPPRL_BUILD_TESTS)
+    target_include_directories(cpprl_tests PRIVATE ${CPPRL_INCLUDE_DIRS})
+endif(CPPRL_BUILD_TESTS)
 
 # Linking
-target_link_libraries(drift torch ${TORCH_LIBRARIES})
-target_link_libraries(drift torch ${TORCH_LIBRARIES})
-if (DRIFT_BUILD_TESTS)
-    target_link_libraries(drift_tests PRIVATE ${TORCH_LIBRARIES})
-endif(DRIFT_BUILD_TESTS)
-
-# Example
-option(DRIFT_BUILD_EXAMPLE "Whether or not to build the example" ON)
-if (DRIFT_BUILD_EXAMPLE)
-    add_subdirectory(example)
-endif(DRIFT_BUILD_EXAMPLE)
+target_link_libraries(cpprl torch ${TORCH_LIBRARIES})
+target_link_libraries(cpprl torch ${TORCH_LIBRARIES})
+if (CPPRL_BUILD_TESTS)
+    target_link_libraries(cpprl_tests torch ${TORCH_LIBRARIES})
+endif(CPPRL_BUILD_TESTS)
 
 # Recurse into source tree
 add_subdirectory(src)
-
-
-
-
-
-
-
-
-
