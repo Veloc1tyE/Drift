@@ -4,7 +4,7 @@
 
 #include <torch/torch.h>
 
-namespace drift
+namespace cpprl
 {
     /*
      * Define structure used for mini-batch processing and training

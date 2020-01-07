@@ -5,10 +5,10 @@
 #include <c10/util/ArrayRef.h>
 #include <torch/torch.h>
 
-#include <drift/generators/generator.h>
-#include <drift/spaces.h>
+#include <cpprl/generators/generator.h>
+#include <cpprl/spaces.h>
 
-namespace drift {
+namespace cpprl {
     
     /**
      * When the agent is initialised, we want it to be able to store all the information

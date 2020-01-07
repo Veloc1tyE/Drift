@@ -2,11 +2,11 @@
 
 #include <memory>
 #include <torch/torch.h>
-#include "drift/distributions/distribution.h"
+#include "cpprl/distributions/distribution.h"
 
 using namespace torch;
 
-namespace drift {
+namespace cpprl {
     
     /*
      * Actor/Critic networks map to an output layer over an action space

@@ -2,11 +2,11 @@
 
 #include <vector>
 #include <torch/torch.h>
-#include "drift/model/nn.base.h"
+#include "cpprl/model/nn.base.h"
 
 using namespace torch;
 
-namespace drift {
+namespace cpprl {
     
     
     class MlpBase : public NNBase {

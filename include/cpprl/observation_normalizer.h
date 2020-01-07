@@ -2,9 +2,9 @@
 
 #include <vector>
 #include <torch/torch.h>
-#include "drift/running_mean_std.h"
+#include "cpprl/running_mean_std.h"
 
-namespace drift {
+namespace cpprl {
     
     /*
      * We must normalise observations to speed up learning

@@ -5,9 +5,9 @@
 
 #include <torch/torch.h>
 
-#include "drift/algorithms/algorithm.h"
+#include "cpprl/algorithms/algorithm.h"
 
-namespace drift  {
+namespace cpprl  {
     
     // Define the Policy used by the A2C algorithm given the gamestate
     class Policy;

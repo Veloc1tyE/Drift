@@ -3,9 +3,9 @@
 #include <string>
 #include <vector>
 
-#include "drift/storage.h"
+#include "cpprl/storage.h"
 
-namespace drift {
+namespace cpprl {
     
     /*
      * Abstractions for use in learning algorithms

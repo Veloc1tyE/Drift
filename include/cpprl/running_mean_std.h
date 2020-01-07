@@ -3,7 +3,7 @@
 #include <vector>
 #include <torch/torch.h>
 
-namespace drift {
+namespace cpprl {
     
     /*
      * Running mean provides a baseline for model performance

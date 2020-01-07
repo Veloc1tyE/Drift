@@ -7,7 +7,7 @@
 
 #include "cpprl/algorithms/algorithm.h"
 
-namespace drift
+namespace cpprl
 {n
     class Policy;
     class RolloutStorage;

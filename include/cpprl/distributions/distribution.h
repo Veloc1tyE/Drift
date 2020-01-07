@@ -2,11 +2,11 @@
 
 #include <torch/torch.h>
 
-namespace drift {
+namespace cpprl {
     
     /*
      * Distribution abstraction for use in distributing the policy of A2C
-     * Needed as Actor-Critic has a probabilistic policy
+     * Needed as Actor-Critic/PPO have probabilistic policies
      */ 
 
     class Distribution {

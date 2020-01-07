@@ -5,10 +5,10 @@
 
 #include <torch/torch.h>
 
-#include "drift/model/nn_base.h"
-#include "drift/model/output_layers.h"
-#include "drift/observation_normalizer.h"
-#include "drift/spaces.h"
+#include "cpprl/model/nn_base.h"
+#include "cpprl/model/output_layers.h"
+#include "cpprl/observation_normalizer.h"
+#include "cpprl/spaces.h"
 
 using namespace torch;
 
@@ -16,7 +16,7 @@ using namespace torch;
  * Construct for Model Policy
  */ 
 
-namespace drift {
+namespace cpprl {
 
     class PolicyImpl : public nn::Module {
         private:

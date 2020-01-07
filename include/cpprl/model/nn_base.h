@@ -5,7 +5,7 @@
 
 using namespace torch;
 
-namespace drift  {
+namespace cpprl  {
     
     /*
      * Abstract class used to contruct Neural Networks
