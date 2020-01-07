@@ -3,14 +3,14 @@
 
 #include <torch/torch.h>
 
-#include "drift/algorithms/a2c.h"
-#include "drift/algorithms/algorithm.h"
-#include "drift/model/policy.h"
-#include "drift/storage.h"
-#include "drift/spaces.h"
+#include "cpprl/algorithms/a2c.h"
+#include "cpprl/algorithms/algorithm.h"
+#include "cpprl/model/policy.h"
+#include "cpprl/storage.h"
+#include "cpprl/spaces.h"
 
 
-namespace drift {
+namespace cpprl {
     A2C::A2C(Policy &policy,
              float actor_loss_coef,
              float value_loss_coef,
