@@ -8,7 +8,7 @@
 #include "cpprl/algorithms/algorithm.h"
 
 namespace cpprl
-{n
+{
     class Policy;
     class RolloutStorage;
 
