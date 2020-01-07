@@ -32,7 +32,7 @@ namespace cpprl
                 float value_loss_coef,
                 float entropy_coef,
                 float learning_rate,
-                float epsilon = 1e-8
+                float epsilon = 1e-8,
                 float max_grad_norm = 0.5,
                 float kl_target = 0.01);
         
